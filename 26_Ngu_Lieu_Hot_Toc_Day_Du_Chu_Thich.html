@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hớt tóc<br>Sài Gòn — Ngữ liệu Dịch thuật</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1A1208;
+    --paper: #F7F2E8;
+    --aged: #EDE5D0;
+    --crease: #D4C9B0;
+    --rust: #7B3F00;
+    --rust-light: #B5651D;
+    --gold: #9B7B2E;
+    --gold-light: #C9A84C;
+    --muted: #5C4F3A;
+    --accent: #2C4A6E;
+    --page-bg: #EAE0CC;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--page-bg);
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(180,165,130,0.15) 27px, rgba(180,165,130,0.15) 28px);
+    font-family: 'Crimson Pro', Georgia, serif;
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 40px 20px 60px;
+  }
+
+  .page-wrapper { max-width: 780px; margin: 0 auto; }
+
+  .header-meta {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 32px; padding-bottom: 16px;
+    border-bottom: 1px solid var(--crease);
+  }
+  .source-badge {
+    font-family: 'Space Mono', monospace; font-size: 10px;
+    letter-spacing: 2px; color: var(--muted); text-transform: uppercase;
+  }
+  .source-badge span { color: var(--rust); font-weight: 700; }
+  .task-badge {
+    background: var(--rust); color: var(--paper);
+    font-family: 'Space Mono', monospace; font-size: 9px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 2px;
+  }
+
+  .story-card {
+    background: var(--paper); border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06), 4px 4px 0 var(--crease);
+    overflow: hidden; position: relative;
+  }
+  .story-card::before {
+    content: ''; position: absolute; left: 72px; top: 0; bottom: 0;
+    width: 1px; background: rgba(181,101,29,0.25); pointer-events: none;
+  }
+
+  .title-block {
+    padding: 48px 56px 36px 88px;
+    border-bottom: 1px solid var(--crease); position: relative;
+  }
+  .title-number {
+    position: absolute; left: 0; top: 48px; width: 72px;
+    font-family: 'Space Mono', monospace; font-size: 9px;
+    color: var(--rust-light); letter-spacing: 1px; text-transform: uppercase;
+    writing-mode: vertical-rl; transform: rotate(180deg);
+    height: 80px; display: flex; align-items: center; justify-content: center;
+  }
+  .story-title {
+    font-family: 'Playfair Display', serif; font-size: 40px;
+    font-weight: 900; color: var(--ink); line-height: 1.15;
+    letter-spacing: -0.5px; margin-bottom: 8px;
+  }
+  .story-subtitle {
+    font-size: 16px; font-style: italic; color: var(--muted);
+  }
+  .author-line {
+    margin-top: 16px; display: flex; align-items: center; gap: 12px;
+  }
+  .author-line::before {
+    content: ''; width: 32px; height: 1px; background: var(--gold);
+  }
+  .author-name {
+    font-family: 'Space Mono', monospace; font-size: 11px;
+    color: var(--gold); letter-spacing: 1px; text-transform: uppercase;
+  }
+
+  .story-body { padding: 36px 56px 44px 88px; }
+
+  .prose {
+    font-size: 18px; line-height: 1.9; color: var(--ink);
+    font-weight: 300; margin-bottom: 22px; text-align: justify;
+  }
+
+  .prose.opening::first-letter {
+    font-family: 'Playfair Display', serif; font-size: 72px;
+    font-weight: 900; float: left; line-height: 0.75;
+    margin-right: 8px; margin-top: 8px; color: var(--rust);
+  }
+
+  .scene-break {
+    text-align: center; color: var(--gold); font-size: 18px;
+    margin: 28px 0; letter-spacing: 12px;
+  }
+
+  .closing-prose {
+    font-size: 18px; line-height: 1.9; color: var(--ink);
+    font-weight: 300; margin-top: 24px; font-style: italic;
+    text-align: center; padding: 24px 32px;
+    border-top: 1px solid var(--crease);
+    border-bottom: 1px solid var(--crease);
+  }
+
+  .slang {
+    border-bottom: 1px dashed var(--rust-light);
+    color: var(--rust); cursor: help;
+  }
+
+  .page-footer {
+    margin-top: 32px; padding-top: 16px;
+    border-top: 1px solid var(--crease);
+    display: flex; justify-content: space-between;
+  }
+  .footer-text {
+    font-family: 'Space Mono', monospace; font-size: 9px;
+    color: var(--muted); letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <div class="header-meta">
+    <div class="source-badge">Ngữ liệu dịch thuật  ·  <span>Trích: Sài Gòn Bao Nhớ</span>  ·  Đàm Hà Phú</div>
+    <div class="task-badge">Phiếu Thực hành & Đánh giá</div>
+  </div>
+
+  <div class="story-card">
+
+    <div class="title-block">
+      <div class="title-number">Ngữ liệu</div>
+      <div class="story-title">Hớt tóc<br>Sài Gòn</div>
+      <div class="story-subtitle">Hoài niệm — Ký ức Sài Gòn xưa</div>
+      <div class="author-line">
+        <div class="author-name">Đàm Hà Phú</div>
+      </div>
+    </div>
+
+    <div class="story-body">
+      <p class="prose opening">Đó là một tiệm hớt tóc nhỏ xíu, ở Phú Nhuận, Sài Gòn, trang trí theo kiểu cũ, với bốn thợ, có lúc nhiều hơn nhưng chưa bao giờ ít hơn, bốn ông thợ già, người trẻ nhứt cũng ngoài năm chục. Tôi đã hớt tóc ở tiệm này từ năm chín bảy, nghĩa là đã mười bảy năm, tính tôi luộm thuộm nên cứ để tóc thiệt dài rồi hớt thiệt ngắn rồi lại để thiệt dài mới hớt tiếp, nên hầu như năm chỉ ghé tiệm đôi ba lần. Tiệm nhỏ, lại nằm ở đường nhỏ nên ghế ngồi kê san sát, mấy năm gần đây làm thêm dịch vụ gội đầu phía sau cho mấy ông chứ lúc trước không có.</p>
+
+      <p class="prose">Bốn ông thợ già, nói giọng Sài Gòn xưa, âm ấm ngang ngang, thứ giọng nói mà bạn thường nghe trên mấy chuyến xe đò miền Tây, rao thuốc nam trị đau nhức. Bốn ông thợ hiền, tẩn mẩn tỉ mỉ săm săm soi soi hớt từng nhánh tóc được vuốt ngược lên bằng chiếc lược ngà mỏng, chiếc kéo trên tay cầm tuy không dùng tới vẫn được xắp xắp từng nhịp tanh tách tanh tách, đôi kính <span class="slang" title="(không cần chú thích — mô tả hình ảnh)">trễ xuống tận mũi</span>, chăm chú theo từng đường kéo nét dao, đó là kiểu làm việc của những người đam mê, và không bao giờ, không bao giờ mắc sai lầm.</p>
+
+      <p class="prose">Xưa kia tiệm xài miếng da lớn, treo từ đầu người xuống sát đất, và cây dao cạo râu xẹp dài với lưỡi dao bóng loáng, như cách đây một trăm năm, sau khi bôi kem lên mặt khách bằng cây chổi tròn, ông thợ già cầm con dao đó liếc qua liếc lại trên miếng da, vừa liếc dao vừa nói chuyện này chuyện nọ, trẻ nít thì ông nói chuyện ma quỷ, thanh niên thì ổng kể chuyện trai gái, ông già thì ổng nhắc thời chinh chiến loạn lạc cũ, người khách lim dim mắt, nghe cũng được mà không nghe cũng được, ổng cứ nói một mình trước khi đặt lưỡi dao trên hàm râu... sau này có vụ <span class="slang" title="hội chứng suy giảm miễn dịch (AIDS), tên gọi cũ phổ biến"><span class="slang" title="đồ cũ, hàng secondhand (từ mượn biến âm)">sida</span></span> nên người ta sợ con dao xài chung, chỉ dùng dao lam xài một lần rồi bỏ.</p>
+
+      <div class="scene-break">· · ·</div>
+
+      <p class="prose">Hầu như tiệm chỉ có khách quen, hoặc giả khách lạ lần đầu rồi cũng thành khách quen như tôi, mà khách quen thì câu chuyện cũng quen, đôi khi tới trúng bữa cơm khách cũng sà vô ăn cơm chung, hay tiệm có mua món quà vặt chi, bánh trái mía ghim cóc xoài xôi chè đậu đen đậu đỏ là cũng làm một phần nhỏ mời khách, khách cũng không mấy khi từ chối. Có khách <span class="slang" title="người Việt định cư ở nước ngoài"><span class="slang" title="người Việt định cư ở nước ngoài">Việt kiều</span></span> vừa xuống sân bay, chưa vội về nhà, kéo va li to đùng vô ngồi tiệm, tặng mấy ông thợ già chai dầu gió hiệu con ó, nằm lấy cái ráy tai cho sướng chút, nói năm ba câu chuyện cũ cho đã chút, rồi mới về nhà.</p>
+
+      <p class="prose">Có khách bị <span class="slang" title="đột quỵ, <span class="slang" title="đột quỵ, tai biến mạch máu não">tai biến</span> mạch máu não">tai biến</span>, biết mình sắp về với ông bà, vẫn kêu con trẻ đẩy xe lăn ra tiệm, hớt cái tóc cạo cái râu cho nghiêm túc trước lúc ra đi, một ông thợ hớt còn hai ông thợ kia giữ cái đầu khách cho thẳng thóm, tiễn khách ra về lần cuối, khách thì cười mà bốn ông thợ già nước mắt ròng ròng.</p>
+
+      <div class="scene-break">· · ·</div>
+
+      <p class="prose">Có lần nọ, có một khách từ xa xuống, đâu từ Buôn Mê chi đó, người mà cả bốn ông thợ rất đỗi kính trọng, gọi là <span class="slang" title="cấp bậc quân hàm — cách gọi tôn trọng người từng là sĩ quan"><span class="slang" title="cấp bậc quân hàm — cách gọi tôn trọng người từng là sĩ quan">Trung Úy</span></span>, khi Trung Úy đến, họ không tiếp khách nữa, dặn con cháu mua chai rượu với chút mồi, đóng cửa ôn chuyện xưa cũ, tôi mới biết là họ đều từng là lính, từng chung chiến hào, của <span class="slang" title="cách gọi phía Việt Nam Cộng Hòa sau 1975, mang sắc thái lịch sử nhạy cảm"><span class="slang" title="cách gọi phía Việt Nam Cộng Hòa sau 1975, mang sắc thái lịch sử nhạy cảm">bên thua cuộc</span></span>. Họ không cay đắng cũng không hề nuối tiếc, đơn giản đó là một phần đời, một phần tuổi trẻ của họ, họ trân trọng nó, như một thứ kỷ vật, lâu lâu lấy ra lau chùi ngắm nghía.</p>
+
+      <div class="scene-break">· · ·</div>
+
+      <p class="prose">Đó là một tiệm hớt tóc nhỏ xíu ở Phú Nhuận, Sài Gòn, trang trí theo kiểu cũ, với bốn ông thợ già. Tôi đã hớt tóc ở tiệm này từ năm chín bảy, nghĩa là đã mười bảy năm, hồi xưa tôi ở trọ gần đó nên có qua một lần, giờ về Gò Vấp xa xôi cũng ráng ghé, rồi giá thuê đất đỏ nên tiệm lại dời vô tuốt trong đường nhỏ, tôi cũng ráng ghé, ghé không phải chỉ hớt tóc, ghé ngồi nhìn mấy ông thợ già, tỉ mỉ tỉa từng đường kéo, chăm từng nhất tông đơ, nghe mấy bản nhạc vàng như "Mưa nửa đêm", "Tỉnh lẻ đêm buồn"...</p>
+
+      <p class="closing-prose">Ghé chỉ để nghe câu chào,<br><span class="slang" title="cách gọi thân mật, không phân biệt tuổi tác trong giao tiếp thân quen"><span class="slang" title="cách gọi thân mật, không phân biệt tuổi tác trong giao tiếp thân quen">thằng Hai</span></span> lâu quá không ghé mậy,<br>đi mần ăn mà để tóc tai thấy ớn,<br>vậy thôi.</p>
+
+    </div>
+
+  </div>
+
+  <div class="page-footer">
+    <div class="footer-text">Trích: Đàm Hà Phú — Sài Gòn Bao Nhớ  ·  Ngữ liệu phi chính thức — Hoài niệm lịch sử</div>
+    <div class="footer-text">House (1997) TQA  ·  COPES (Winne & Hadwin, 1998)</div>
+  </div>
+
+</div>
+</body>
+</html>
